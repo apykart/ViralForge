@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0c12;
+  font-family: 'Inter', sans-serif;
+  color: #eef2ff;
+  overflow-x: hidden;
+}
+
+:root {
+  --glass: rgba(15, 25, 45, 0.65);
+  --primary: #8b5cf6;
+  --primary-dark: #6d28d9;
+  --secondary: #3b82f6;
+  --accent: #f97316;
+  --text-dim: #94a3b8;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(10, 12, 18, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #1e293b;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-links a:hover { color: #a855f7; }
+
+.btn-primary, .btn-outline, .btn-google {
+  padding: 0.5rem 1.5rem;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(105deg, #8b5cf6, #3b82f6);
+  color: white;
+}
+
+.btn-primary:hover { transform: scale(1.02); background: linear-gradient(105deg, #9f6ef7, #4f94f7); }
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+}
+
+.btn-outline:hover { background: rgba(59,130,246,0.15); }
+
+.btn-google {
+  background: #1e293b;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.glass-card {
+  background: rgba(15, 25, 45, 0.65);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 1.5rem;
+  box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
+}
+
+.page {
+  display: none;
+  animation: fadeIn 0.3s ease;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.upload-area {
+  border: 2px dashed #3b82f6;
+  border-radius: 32px;
+  background: rgba(59,130,246,0.05);
+  transition: 0.2s;
+  cursor: pointer;
+  text-align: center;
+  padding: 2rem;
+}
+
+.upload-area.drag { background: rgba(139,92,246,0.15); border-color: #a855f7; }
+
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.thumbnail-card {
+  background: #1e293b;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #334155;
+}
+
+.thumbnail-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+
+.viral-meter {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #f97316, #eab308, #10b981, #3b82f6, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.viral-meter::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #0a0c12;
+  border-radius: 50%;
+}
+
+.viral-meter span { position: relative; z-index: 2; }
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.input-glass {
+  background: rgba(30,41,59,0.6);
+  border: 1px solid #334155;
+  border-radius: 24px;
+  padding: 12px 18px;
+  color: white;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 1rem; }
+  .nav-links { gap: 1rem; }
+  .grid-3 { grid-template-columns: 1fr; }
+}
