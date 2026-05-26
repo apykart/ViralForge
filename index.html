@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>ViralForge AI – Turn Videos Into Viral Content</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">⚡ ViralForge AI</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#" onclick="showPage('landing')">Home</a>
+      <a href="#" id="dashboardLink" style="display:none" onclick="showPage('dashboard')">Dashboard</a>
+      <a href="#" id="adminLink" style="display:none" onclick="showPage('admin')">Admin</a>
+      <button id="authBtn" class="btn-outline" onclick="showAuthModal()">Sign In</button>
+      <span id="userAvatar" class="user-avatar" style="display:none" onclick="showPage('profile')">👤</span>
+    </div>
+  </nav>
+
+  <!-- Pages -->
+  <main id="app">
+    <div id="landingPage" class="page active">Loading...</div>
+    <div id="dashboardPage" class="page"></div>
+    <div id="adminPage" class="page"></div>
+    <div id="profilePage" class="page"></div>
+  </main>
+
+  <!-- Auth Modal -->
+  <div id="authModal" class="modal">
+    <div class="modal-content glass-card">
+      <span class="close" onclick="closeAuthModal()">&times;</span>
+      <h3>Sign in to ViralForge</h3>
+      <div class="auth-tabs">
+        <button class="tab-btn active" onclick="switchAuthTab('login')">Login</button>
+        <button class="tab-btn" onclick="switchAuthTab('signup')">Sign Up</button>
+      </div>
+      <div id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPass" placeholder="Password">
+        <button class="btn-primary" onclick="handleLogin()">Login</button>
+        <button class="btn-google" onclick="googleLogin()">Continue with Google</button>
+      </div>
+      <div id="signupForm" style="display:none">
+        <input type="email" id="signupEmail" placeholder="Email">
+        <input type="password" id="signupPass" placeholder="Password">
+        <button class="btn-primary" onclick="handleSignup()">Create Account</button>
+      </div>
+      <a href="#" onclick="resetPassword()">Forgot password?</a>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
